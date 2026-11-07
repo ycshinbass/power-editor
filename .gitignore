@@ -11,3 +11,8 @@ __pycache__/
 node_modules/
 .wrangler/
 mobile-collector-private/
+
+# 빌드 산출물과 과거 검수 스크린샷
+dist/
+worker/index.js
+qa/*.png
