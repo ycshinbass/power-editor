@@ -1,0 +1,13 @@
+
+__pycache__/
+*.pyc
+
+.env
+.env.*
+!.env.example
+.dev.vars
+*.pem
+*.key
+node_modules/
+.wrangler/
+mobile-collector-private/

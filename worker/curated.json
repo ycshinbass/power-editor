@@ -1,0 +1,117 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-10-31T14:32:00Z",
+  "reviewMethod": "일회성 원문 대조 및 편집 검토. 지속적인 자동 사실검증이나 독립된 사실확인 인증이 아님.",
+  "displayPolicy": "원문 제목과 확인 당시 원문 내용이 일치할 때만 편집 검토본을 적용한다. 원문 변경·철회·새 기사에는 자동 승계하지 않는다. 발행일과 검토시각을 표시하고 오래된 자료는 배경자료로 구분한다.",
+  "articles": {
+    "https://www.eia.gov/todayinenergy/detail.php?id=68384": {
+      "originalTitle": "The share of solar generation with co-located battery storage is increasing",
+      "headlineKo": "미국 신규 태양광의 배터리 병설 확대…올해 9월까지 16% 넘어",
+      "translationLabel": "우리지역 전력에디터 번역·요약",
+      "publisher": "U.S. Energy Information Administration",
+      "sourceType": "정부 통계 분석",
+      "publishedDate": "2026-10-30",
+      "datePrecision": "day",
+      "gist": "EIA 집계에서 올해 9월까지 추가된 미국 대규모 태양광 용량 중 가동 중인 배터리가 함께 설치된 비중은 16%를 넘었다. 사업자가 제출한 계획에서는 2027~2028년 신규 태양광의 병설 비중이 30%를 넘지만, 이는 준공 실적이 아니다.",
+      "selectionReason": "태양광·배터리 병설 확대. 충·방전에 따른 시간대별 전력 흐름 변화에 주목.",
+      "uncertainty": "미국 사업자 보고자료에 근거한 분석이다. 향후 비중은 계획이며 국내 현장에 같은 비율이나 효과가 적용된다는 뜻은 아니다.",
+      "ageLabelAtReview": "전일 발행",
+      "relevanceClass": "산업 동향",
+      "supportingUrls": [
+        "https://www.eia.gov/todayinenergy/detail.php?id=68384"
+      ],
+      "checkedAt": "2026-10-31T14:32:00Z"
+    },
+    "https://insidelines.pjm.com/pjm-files-amended-reliability-backstop-proposal/": {
+      "originalTitle": "PJM Files Amended Reliability Backstop Proposal",
+      "headlineKo": "PJM, 대규모 수요 증가에 대응할 추가 전원 조달 수정안 제출",
+      "translationLabel": "우리지역 전력에디터 번역·요약",
+      "publisher": "PJM Inside Lines",
+      "sourceType": "계통운영기관 자체 발표",
+      "publishedDate": "2026-10-29",
+      "datePrecision": "day",
+      "gist": "PJM은 2028~2029년 공급연도 용량 부족에 대응하는 추가 조달 절차의 수정안을 FERC에 제출했다고 밝혔다. 2027년 3월 개시를 목표로 비용 배분과 신용 요건 등을 변경했으며, 조달 부족분은 새 정보로 다시 산정할 예정이다.",
+      "selectionReason": "대규모 신규 부하와 전원 확보 속도의 격차. 추가 공급 확보 제도 논의.",
+      "uncertainty": "PJM이 제출한 제안에 대한 자체 설명이다. 최종 승인이나 국내 제도 도입이 확정됐다는 보도가 아니며 현재 정전 발생을 뜻하지 않는다.",
+      "ageLabelAtReview": "2일 전 발행",
+      "relevanceClass": "공급 계획·제도",
+      "supportingUrls": [
+        "https://insidelines.pjm.com/pjm-files-amended-reliability-backstop-proposal/"
+      ],
+      "checkedAt": "2026-10-31T14:32:00Z"
+    },
+    "https://insidelines.pjm.com/pjm-ferc-focus-on-large-load-challenges-at-tech-conference/": {
+      "originalTitle": "PJM, FERC Focus on Large Load Challenges at Tech Conference",
+      "headlineKo": "PJM, 상시 데이터센터 부하로 봄·가을 설비 정비 여건도 어려워져",
+      "translationLabel": "우리지역 전력에디터 번역·요약",
+      "publisher": "PJM Inside Lines",
+      "sourceType": "계통운영기관 자체 발표",
+      "publishedDate": "2026-10-22",
+      "datePrecision": "day",
+      "gist": "PJM은 FERC 기술회의에서 데이터센터의 지속적인 전력 사용이 봄·가을 정비기간의 신뢰도 유지에도 부담을 준다고 설명했다. 대규모 부하의 기술정보 갱신과 전압·주파수 변동 시 계통 연결 유지 요건 등 대응 과제를 제시했다.",
+      "selectionReason": "상시 데이터센터 부하 증가. 봄·가을 휴전·정비 여유도 함께 검토할 과제.",
+      "uncertainty": "10월 21일 회의에 대한 10월 22일 발표이며 오늘의 긴급 상황이 아니다. PJM의 견해와 제도 논의로, 한국 계통의 정비 기준을 대체하지 않는다.",
+      "ageLabelAtReview": "9일 전 발행 · 배경자료",
+      "relevanceClass": "운영 참고 사례",
+      "supportingUrls": [
+        "https://insidelines.pjm.com/pjm-ferc-focus-on-large-load-challenges-at-tech-conference/"
+      ],
+      "checkedAt": "2026-10-31T14:32:00Z"
+    },
+    "https://www.eia.gov/todayinenergy/detail.php?id=68305": {
+      "originalTitle": "PJM, ERCOT, and SWPP all set peak load records this summer",
+      "headlineKo": "미국 PJM·ERCOT·SPP, 올여름 시간당 최대부하 기록 경신",
+      "translationLabel": "우리지역 전력에디터 번역·요약",
+      "publisher": "U.S. Energy Information Administration",
+      "sourceType": "정부 통계 분석",
+      "publishedDate": "2026-10-15",
+      "datePrecision": "day",
+      "gist": "EIA는 계통운영기관이 보고한 시간별 부하자료를 바탕으로 PJM·ERCOT·SPP의 2026년 여름 최대부하가 기존 기록을 넘었다고 분석했다. 대부분의 최대부하는 지역 폭염과 냉방수요 증가 시기에 나타났다.",
+      "selectionReason": "폭염과 냉방수요가 최대부하를 견인. 기상·수요를 함께 보는 수급 계획.",
+      "uncertainty": "16일 전 발표한 과거 여름 분석이다. EIA는 보고 오류 가능성과 각 운영기관 자체 수치와의 차이를 명시하며, 통계상 최대부하 경신이 곧 정전을 뜻하지는 않는다.",
+      "ageLabelAtReview": "16일 전 발행 · 배경자료",
+      "relevanceClass": "기상·수요 참고 사례",
+      "supportingUrls": [
+        "https://www.eia.gov/todayinenergy/detail.php?id=68305"
+      ],
+      "checkedAt": "2026-10-31T14:32:00Z"
+    },
+    "https://www.eia.gov/todayinenergy/detail.php?id=68324": {
+      "originalTitle": "U.S. small-scale solar generation has quadrupled in the last decade",
+      "headlineKo": "미국 소규모 태양광 발전량 확대…계통에서 보이지 않는 발전량 추정도 중요",
+      "translationLabel": "우리지역 전력에디터 번역·요약",
+      "publisher": "U.S. Energy Information Administration",
+      "sourceType": "정부 통계 분석",
+      "publishedDate": "2026-10-16",
+      "datePrecision": "day",
+      "gist": "EIA는 미국 소규모 태양광 발전량이 지난 10년 동안 크게 늘었다고 분석했다. 전력회사가 지붕형 태양광의 실제 발전량을 모두 알 수 없어 설비 용량 조사와 모델을 이용해 발전량을 추정한다고 설명했다.",
+      "selectionReason": "분산형 태양광 확대. 계측 부하와 추정 발전량을 구분해야 하는 운영 과제.",
+      "uncertainty": "15일 전 발행한 미국 통계 설명이다. 발전량은 추정치이며 국내 특정 변전소에서 역송이나 전압 문제가 발생했다는 근거는 아니다.",
+      "ageLabelAtReview": "15일 전 발행 · 배경자료",
+      "relevanceClass": "분산전원 데이터 참고",
+      "supportingUrls": [
+        "https://www.eia.gov/todayinenergy/detail.php?id=68324"
+      ],
+      "checkedAt": "2026-10-31T14:32:00Z"
+    },
+    "https://www.motir.go.kr/kor/article/ATCL3f49a5a8c/172355/view": {
+      "originalTitle": "한·독, 경제안보·첨단산업 협력 강화",
+      "headlineKo": "한·독 산업협력 확대…전력·에너지 분야 협력도 포함",
+      "translationLabel": "우리지역 전력에디터 요약 제목",
+      "publisher": "산업통상부",
+      "sourceType": "정부 보도자료",
+      "publishedDate": "2026-10-30",
+      "datePrecision": "day",
+      "gist": "산업통상부는 한·독 경제·하이테크 협력 틀에 관한 공동의향선언을 체결했다고 발표했다. 첨부 보도자료는 기업·기관 협력 분야에 전력·에너지를 포함하지만 개별 전력설비 도입이나 상용화 성과를 제시하지는 않는다.",
+      "selectionReason": "한·독 전력·에너지 기술 협력 확대. 후속 사업과 실제 설비 적용은 별도 확인.",
+      "uncertainty": "정부의 협력 추진 발표다. 의향선언과 협력 양해각서를 실제 설비 공급계약·기술 검증·현장 적용 완료로 해석하면 안 된다.",
+      "ageLabelAtReview": "전일 발행",
+      "relevanceClass": "국내 산업 동향 · 낮은 우선순위",
+      "supportingUrls": [
+        "https://www.motir.go.kr/kor/article/ATCL3f49a5a8c/172355/view",
+        "https://www.motir.go.kr/attach/down/095a2dda9c864e1d90d751f7668a1117/ef20afcaac10fc8c4bddad7c9bc0c665/9a9db098b587ee18b321c826f3707a49"
+      ],
+      "checkedAt": "2026-10-31T14:32:00Z"
+    }
+  }
+}

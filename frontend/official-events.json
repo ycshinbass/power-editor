@@ -1,0 +1,26 @@
+{
+  "checkedAt": "2026-10-31T18:43:00Z",
+  "mode": "one-time-source-verified-not-auto-synced",
+  "events": [
+    {
+      "id": "csat-2027-academic-year",
+      "title": "2027학년도 대학수학능력시험",
+      "startDate": "2026-11-19",
+      "endDate": "2026-11-19",
+      "timezone": "Asia/Seoul",
+      "scope": "national",
+      "allDay": true,
+      "sourcePublisher": "교육부",
+      "sourcePublishedAt": "2026-10-20",
+      "sourceUrl": "https://www.moe.go.kr/boardCnts/viewRenew.do?boardID=294&boardSeq=107461&lev=0&m=020402&opType=N&page=1&s=moe&statusYN=W",
+      "license": "KOGL-1; 출처표시",
+      "checkedAt": "2026-10-31T18:43:00Z",
+      "expiresAt": "2026-11-20T00:00:00+09:00",
+      "factualNote": "일반 수험생 시험은 08:40~17:45이며, 시험편의제공대상자 포함 종료시각은 21:48이다. 영어 듣기평가는 13:10~13:35이다.",
+      "editorReason": "시험장 공급설비 점검 및 작업·비상근무 계획을 미리 검토할 전국 일정이다. 실제 담당 시험장의 운영시간과 소속기관 지침을 확인한다.",
+      "statusLabel": "공식 일정 1회 확인 · 변경사항 자동 동기화 아님",
+      "suggestedReviewAt": "2026-11-12",
+      "reviewNote": "재확인 권장일이며 공식 일정이나 자동 재확인 약속이 아님"
+    }
+  ]
+}

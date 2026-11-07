@@ -1,0 +1,271 @@
+@charset "UTF-8";
+html.material3,html.material3.naver-design-preview:not([data-theme=dark]){color-scheme:light;--bg:#f1f3fa;--surface:#fafbff;--surface-low:#e9edf7;--surface-high:#e1e6f2;--ink:#1b2337;--muted:#536078;--outline:#c7cfdf;--line:#dde3ed;--primary:#3459b8;--on-primary:#fff;--primary-container:#dce5ff;--on-primary-container:#183877;--secondary:#52617f;--secondary-container:#e0e7f6;--tertiary:#32675f;--positive:#3a655d;--good-bg:#e2eee9;--fair-bg:#e8ecf3;--warning:#805500;--warning-bg:#ffedc9;--warning-border:#ead3a0;--delta:#b02f46;--delta-bg:#f9e4e9;--shadow:0 2px 8px #23335c06;--radius:22px;--chart-grid:#cbd3e3;--chart-night:#3b4f7210;--chart-day:#f2c96a14;--actual:#3c65c8;--forecast:#c34c61;--yesterday:#8190ab;--fuel-nuclear:#65a199;--fuel-coal:#ba995f;--fuel-gas:#9b83bb;--fuel-renew:#d69c9e;--fuel-water:#8ca6c6;--fuel-solar:#b9c283}
+html.material3[data-theme=dark],html.material3.naver-design-preview[data-theme=dark]{color-scheme:dark;--bg:#101623;--surface:#1b2332;--surface-low:#202a3b;--surface-high:#29364b;--ink:#e8edf9;--muted:#abb8d0;--outline:#58677e;--line:#344157;--primary:#afc5ff;--on-primary:#17346c;--primary-container:#28467f;--on-primary-container:#dbe5ff;--secondary:#bdc9e3;--secondary-container:#34435f;--tertiary:#9ccfc3;--positive:#a4cdbf;--good-bg:#2b403d;--fair-bg:#354253;--warning:#f2ca78;--warning-bg:#4b3a1b;--warning-border:#70552c;--delta:#ffb1bf;--delta-bg:#482c38;--shadow:none;--chart-grid:#39465c;--chart-night:#080e1d44;--chart-day:#e6bd6310;--actual:#9bbaff;--forecast:#ff98ac;--yesterday:#9daac0}
+/* Approved Material 3 skin; data, permissions and collection remain unchanged. */
+html.material3{--blue:var(--primary);--navy:var(--ink);--soft:var(--surface-low);--paper:var(--surface);--text:var(--ink);--chart-text:var(--muted);--chart-total:var(--ink);--chart-previous:#8190ab;--chart-boundary:var(--surface);--briefbar-height:110px;scroll-padding-top:190px}
+html.material3.naver-design-preview body{background:var(--bg);color:var(--ink);font-family:"Pretendard","Noto Sans KR",-apple-system,BlinkMacSystemFont,"Segoe UI","Malgun Gothic",sans-serif;font-size:14px;line-height:1.5;letter-spacing:0}
+html.material3.naver-design-preview main{width:min(1184px,calc(100% - 48px));max-width:none;margin:0 auto;padding:25px 0 95px;background:none}
+html.material3.naver-design-preview .masthead{position:sticky;top:0;z-index:31;width:100%;max-width:none;height:64px;min-height:64px;margin:0;padding:0 max(24px,calc((100vw - 1184px)/2));background:var(--surface);color:var(--ink);border:0;box-shadow:none;gap:6px;flex-wrap:nowrap}
+html.material3.naver-design-preview .masthead .brand{font-size:20px;font-weight:750;letter-spacing:-.8px;line-height:1.3;white-space:nowrap;flex:0 1 auto;min-width:0;gap:9px;color:var(--ink)}
+html.material3.naver-design-preview .brand>svg{width:29px;height:32px;padding:6px;background:var(--primary-container);color:var(--primary);border-radius:10px;flex:none}
+html.material3.naver-design-preview .head-right{display:flex;align-items:center;gap:6px;margin:0;flex:none}
+html.material3.naver-design-preview .header-alerts{position:relative;flex:1 1 0;min-width:0;margin:0}
+html.material3.naver-design-preview .header-alerts summary{display:flex;align-items:center;gap:4px;width:fit-content;max-width:100%;min-height:30px;padding:5px 9px;border-radius:12px;background:var(--warning-bg);color:var(--warning);font-size:12px;font-weight:700;line-height:1.3;list-style:none;cursor:pointer}
+html.material3.naver-design-preview .header-alerts summary::-webkit-details-marker{display:none}
+html.material3.naver-design-preview .header-alert-label{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+html.material3.naver-design-preview .header-alerts summary>span:last-child{flex:none;font-size:10px}
+html.material3.naver-design-preview .header-alert-menu{position:absolute;top:calc(100% + 8px);left:0;z-index:40;width:max-content;min-width:180px;max-width:340px;padding:5px;background:var(--surface);border:1px solid var(--warning-border);border-radius:14px;box-shadow:0 6px 20px #0002}
+html.material3.naver-design-preview .header-alert-menu button{display:block;width:100%;min-height:40px;padding:8px 10px;border:0;border-radius:9px;background:none;color:var(--ink);font-size:13px;font-weight:600;text-align:left;white-space:normal}
+html.material3.naver-design-preview .header-alert-menu button:hover{background:var(--warning-bg);color:var(--warning)}
+html.material3.naver-design-preview .header-alerts summary:focus-visible{outline:2px solid var(--primary);outline-offset:2px}
+html.material3.naver-design-preview .header-location{margin-left:auto;margin-right:0;height:36px;min-height:36px;padding:0 13px;border:0;border-radius:24px;background:var(--surface-low);color:var(--ink);font-size:12px;font-weight:600;line-height:1.2}
+html.material3.naver-design-preview .forecast-reference{display:none}
+html.material3.naver-design-preview #previewThemeToggle{height:36px;min-height:36px;min-width:58px;padding:0 13px;border:0;border-radius:24px;background:var(--secondary-container);color:var(--ink);font-size:11px;font-weight:750}
+html.material3.naver-design-preview .head-right .icon-button{width:36px;height:36px;padding:9px;border-radius:50%;color:var(--ink);background:transparent}
+html.material3.naver-design-preview .head-right .icon-button svg{width:20px;height:20px}
+html.material3.naver-design-preview #previewBriefbar{position:sticky;top:64px;z-index:30;margin:0;border:0;border-bottom:1px solid var(--line);background:var(--surface);color:var(--ink);box-shadow:none}
+html.material3.naver-design-preview .briefbar-inner{width:min(1184px,calc(100% - 48px));max-width:none;margin:auto;padding:0}
+html.material3.naver-design-preview .briefbar-main{display:grid;grid-template-columns:92px minmax(180px,1fr) minmax(170px,1fr);gap:22px;align-items:center;min-height:67px;padding:0;border-top:1px solid var(--line)}
+html.material3.naver-design-preview #regionButton{min-height:43px;height:43px;width:100%;padding:5px 10px;display:grid;grid-template-columns:1fr 10px;grid-template-rows:auto auto;gap:0 3px;border:0;border-radius:14px;background:var(--surface-low);color:var(--ink);text-align:left}
+html.material3.naver-design-preview #briefRegionName{font-size:10px;line-height:1.4;color:var(--muted);grid-column:1}
+html.material3.naver-design-preview #regionCount{font-size:15px;line-height:1.25;grid-column:1}
+html.material3.naver-design-preview #regionButton>span:last-child{grid-column:2;grid-row:1/3;align-self:center;font-size:10px}
+html.material3.naver-design-preview .briefbar-weather .weather-reference{padding:0;min-height:43px;border:0;background:transparent;box-shadow:none}
+html.material3.naver-design-preview .briefbar-weather #currentObservation{display:grid;grid-template-columns:28px minmax(52px,1fr) minmax(60px,.8fr);grid-template-rows:16px 29px;column-gap:7px;row-gap:0;align-items:center;justify-content:initial}
+html.material3.naver-design-preview .briefbar-weather #currentObservation .weather-now-identity{display:contents}
+html.material3.naver-design-preview .briefbar-weather #currentObservation .weather-now-identity>span:not(.weather-now-precip){grid-column:1/3;grid-row:1;font-size:11px;line-height:16px;color:var(--muted);font-weight:500}
+html.material3.naver-design-preview .briefbar-weather #currentObservation .weather-now-identity .weather-icon{grid-column:1;grid-row:2;width:28px;height:27px;align-self:center;stroke:var(--warning);color:var(--warning);--weather-cloud:var(--surface-high)}
+html.material3.naver-design-preview .briefbar-weather #currentObservation .weather-now-temp{grid-column:2;grid-row:2;font-size:25px;line-height:29px;letter-spacing:-1px;font-weight:750;color:var(--ink)}
+html.material3.naver-design-preview .briefbar-weather .weather-now-temp:before{display:none}
+html.material3.naver-design-preview .briefbar-weather #currentObservation .weather-now-metrics{grid-column:3;grid-row:1/3;align-self:center}
+html.material3.naver-design-preview .briefbar-weather .weather-now-humidity{display:flex;flex-direction:column-reverse;align-items:flex-start;gap:0}
+html.material3.naver-design-preview .briefbar-weather .weather-unit-label{font-size:11px;line-height:16px;color:var(--muted)}
+html.material3.naver-design-preview .briefbar-weather .weather-now-humidity strong{font-size:25px;line-height:29px;letter-spacing:-1px;color:var(--ink);font-weight:750}
+html.material3.naver-design-preview .briefbar-weather :is(.weather-now-temp small,.weather-now-humidity strong small){font-size:12px;letter-spacing:0}
+html.material3.naver-design-preview .briefbar-weather #currentObservation:has(.weather-now-precip){grid-template-columns:28px minmax(65px,1fr) minmax(50px,.8fr)}
+html.material3.naver-design-preview .briefbar-weather #currentObservation .weather-now-identity>.weather-now-precip{grid-row:1;grid-column:2;justify-self:end;font-size:11px;line-height:16px;color:var(--ink)}
+html.material3.naver-design-preview .briefbar-power{border-left:1px solid var(--line);padding:0 0 0 24px;min-height:43px;display:flex;justify-content:space-between;align-items:center;gap:12px;text-align:left;background:none}
+html.material3.naver-design-preview .briefbar-power>span:first-child{display:block}
+html.material3.naver-design-preview .briefbar-power small{font-size:11px;line-height:16px;color:var(--muted);display:block}
+html.material3.naver-design-preview #briefReserve{display:block;color:var(--primary);font-size:25px;line-height:29px;font-weight:750;letter-spacing:-1px}
+html.material3.naver-design-preview #briefReserve small{display:inline;font-size:12px;color:inherit}
+html.material3.naver-design-preview #briefReserveState:empty{display:none}
+html.material3.naver-design-preview .brief-mini{display:block;width:94px;min-width:60px;flex:none}
+html.material3.naver-design-preview #briefDemandGraph{width:94px;height:32px;display:block;overflow:visible}
+html.material3.naver-design-preview .brief-mini>small{display:none}
+html.material3.naver-design-preview .briefbar-news{height:38px;padding:0;display:flex;gap:8px;border-top:1px solid var(--line);align-items:center}
+html.material3.naver-design-preview #briefKepco{flex:1;min-width:0;display:flex;align-items:center;gap:10px;color:var(--ink);font-size:12px;line-height:22px}
+html.material3.naver-design-preview #briefKepco>b{border-radius:5px;padding:2px 7px;background:var(--primary-container);color:var(--primary);font-size:10px;line-height:16px;white-space:nowrap}
+html.material3.naver-design-preview .headline-window{font-size:12px;line-height:22px;height:22px}
+html.material3.naver-design-preview #briefNewsPause{color:var(--muted);width:20px;padding:0;font-size:12px}
+html.material3.naver-design-preview .brief-outage{border:0;border-radius:20px;background:var(--surface-low);color:var(--muted);padding:4px 9px;font-size:11px;min-height:26px;gap:4px;display:flex;align-items:center;white-space:nowrap}
+html.material3.naver-design-preview .brief-outage[data-active=true]{background:var(--delta-bg);color:var(--delta)}
+html.material3.naver-design-preview .brief-outage :is(h3,#outageState){font:inherit;margin:0;color:inherit}
+html.material3.naver-design-preview .briefbar-alerts{padding:5px 0}
+html.material3.naver-design-preview .briefbar-alerts button{border:0;background:var(--warning-bg);color:var(--warning);font-size:12px;border-radius:12px}
+html.material3 #todayView{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(310px,1fr);gap:28px;align-items:start}
+html.material3 #todayView[hidden]{display:none}
+html.material3 #todayView>.primary,html.material3 .material-side{min-width:0;width:100%}
+html.material3 #todayView>.rail{display:none}
+html.material3 .material-side{grid-column:2;grid-row:1/3}
+html.material3 #todayView>.material-events{grid-column:1}
+html.material3.naver-design-preview .section{margin-top:0}
+html.material3.naver-design-preview .operations{background:none;border:0;padding:0}
+html.material3.naver-design-preview :is(.tier-heading,.attention-top,.section-title,.material-section-heading){display:flex;justify-content:space-between;align-items:center;gap:10px;padding:0;margin:0 0 12px;border:0;min-height:0}
+html.material3.naver-design-preview :is(.tier-heading h2,.attention-top h2,.news>.section-title h2,.material-section-heading h2){font-size:18px;line-height:1.4;font-weight:700;letter-spacing:-.5px;margin:0}
+html.material3.naver-design-preview .tier-heading h2{font-size:23px;font-weight:750;letter-spacing:-.9px}
+html.material3.naver-design-preview .tier-heading .home-clock{margin-left:auto;align-items:center;color:var(--muted);font-size:11px}
+html.material3.naver-design-preview #homeClock{font-size:11px;line-height:1.5;color:var(--muted);font-weight:400;white-space:nowrap}
+html.material3.naver-design-preview .demand-overview{display:grid;grid-template-columns:1fr 1fr;border:0;gap:10px;margin:0 0 12px;background:none;box-shadow:none;overflow:visible}
+html.material3.naver-design-preview :is(.demand-live,.demand-difference){padding:12px 16px 11px;border:0;border-radius:18px;display:grid;grid-template-rows:39px 20px;gap:3px;min-width:0}
+html.material3.naver-design-preview .demand-live{background:var(--primary);color:var(--on-primary)}
+html.material3.naver-design-preview .demand-live .supply-metrics>.supply-main{background:none;display:flex;align-items:center;justify-content:space-between;gap:6px}
+html.material3.naver-design-preview .demand-live .supply-metrics>div>span{font-size:12px;color:inherit;line-height:1.3}
+html.material3.naver-design-preview .demand-live .supply-metrics strong{font-size:35px;line-height:39px;color:inherit;letter-spacing:-1.4px}
+html.material3.naver-design-preview .demand-live .supply-metrics small{font-size:13px;line-height:1;color:inherit}
+html.material3.naver-design-preview .demand-support{display:flex;flex-wrap:nowrap;justify-content:space-between;gap:5px;margin:0;line-height:20px}
+html.material3.naver-design-preview .demand-support>div{font-size:11px;color:inherit;white-space:nowrap;gap:3px}
+html.material3.naver-design-preview .demand-support strong{font-size:12px;color:inherit}
+html.material3.naver-design-preview .demand-support small{font-size:9px;color:inherit}
+html.material3.naver-design-preview .demand-difference{background:var(--delta-bg);color:var(--delta);grid-template-columns:minmax(0,1fr) auto}
+html.material3.naver-design-preview #demandCompareTitle{font-size:12px;color:var(--delta);line-height:1.3;align-self:center}
+html.material3.naver-design-preview #demandCompareValue{font-size:35px;line-height:39px;color:var(--delta);letter-spacing:-1.4px}
+html.material3.naver-design-preview #demandCompareValue small{font-size:13px}
+html.material3.naver-design-preview #demandCompareCaption{grid-column:1/-1;display:flex;justify-content:space-between;gap:3px;font-size:11px;line-height:20px;color:var(--muted);margin:0}
+html.material3.naver-design-preview #demandCompareCaption #demandCompareAmount{display:inline;font-size:12px;line-height:20px;color:var(--delta)}
+html.material3.naver-design-preview :is(.demand-outlook,.supply-panel.demand-generation){background:var(--surface);color:var(--ink);border:1px solid transparent;border-radius:22px;padding:15px 12px 9px;box-shadow:0 2px 8px #23335c06;overflow:hidden;--demand-paper:var(--surface);--demand-accent:var(--delta);--demand-mist:var(--surface-low)}
+html.material3.naver-design-preview .demand-generation{margin-top:12px}
+html.material3.naver-design-preview :is(.demand-topline,.demand-generation .supply-heading){display:flex;align-items:center;justify-content:space-between;gap:8px;margin:0 3px 6px;padding:0}
+html.material3.naver-design-preview :is(.demand-topline h3,.demand-generation .supply-heading h3){font-size:16px;line-height:1.4;font-weight:700;letter-spacing:-.3px;margin:0}
+html.material3.naver-design-preview .demand-example-badge{font-size:10px;line-height:1.4;padding:2px 6px;border:0;border-radius:10px;background:var(--surface-low);color:var(--muted)}
+html.material3.naver-design-preview #demandExampleChart{height:250px;display:block;width:100%;overflow:hidden}
+html.material3.naver-design-preview #powerFlowChart{height:245px;width:100%;display:block;overflow:hidden}
+html.material3.naver-design-preview :is(#demandExampleChart,#powerFlowChart) text{font-size:13px;fill:var(--muted);font-family:inherit}
+html.material3.naver-design-preview .demand-line{fill:none;stroke-linecap:butt;stroke-linejoin:miter}
+html.material3.naver-design-preview .demand-line.actual{stroke:var(--actual);stroke-width:2.2}
+html.material3.naver-design-preview .demand-line.predicted{stroke:var(--forecast);stroke-width:1.8}
+html.material3.naver-design-preview .demand-line.baseline{stroke:var(--yesterday);stroke-width:1.5;stroke-dasharray:4 3}
+html.material3.naver-design-preview .demand-grid{stroke:var(--chart-grid);stroke-width:.6;stroke-dasharray:2 4}
+html.material3.naver-design-preview .demand-solar-night{fill:var(--chart-night);opacity:1}
+html.material3.naver-design-preview .demand-solar-day{fill:var(--chart-day);opacity:1}
+html.material3.naver-design-preview .demand-solar-boundary{stroke:var(--outline);stroke-width:.7;stroke-dasharray:3 4}
+html.material3.naver-design-preview #demandSolarTrack .solar-orbit{stroke:var(--warning);stroke-width:.7;opacity:.45;fill:none}
+html.material3.naver-design-preview #demandSolarTrack .solar-horizon{opacity:0}
+html.material3.naver-design-preview #demandSolarTrack .solar-marker-disc{fill:var(--surface);stroke:var(--warning);stroke-width:.6;opacity:.9}
+html.material3.naver-design-preview #demandSolarTrack .demand-solar-icon{stroke:var(--warning);stroke-width:1;fill:none}
+html.material3.naver-design-preview :is(.demand-legend,.demand-generation .flow-legend){font-size:11px;color:var(--muted);line-height:1.5;gap:5px 10px;margin:5px 3px;padding:0;flex-wrap:wrap}
+html.material3.naver-design-preview .demand-generation .flow-controls{margin:0 0 0 auto;padding:0;min-height:0;border:0}
+html.material3.naver-design-preview .demand-generation .flow-controls label{font-size:11px;color:var(--muted)}
+html.material3.naver-design-preview :is(.demand-method,.demand-fuel-detail,.supply-details){border:0;background:none;margin:0;padding:0;color:var(--muted);font-size:12px}
+html.material3.naver-design-preview :is(.demand-method,.demand-fuel-detail,.supply-details)>summary{font-size:12px;line-height:1.5;padding:5px 3px;color:var(--muted)}
+html.material3.naver-design-preview :is(.demand-method,.supply-details)>div,html.material3.naver-design-preview .supply-details>p{font-size:14px;line-height:1.75;color:var(--muted)}
+html.material3.naver-design-preview .flow-chart-wrap{border:0;padding:0;background:transparent}
+html.material3.naver-design-preview .material-side>.attention{padding:0;background:none;border:0;margin:0 0 24px}
+html.material3.naver-design-preview .compact-signals.local-cards{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+html.material3.naver-design-preview .compact-signals>.local-card{padding:16px;border-radius:22px;border:1px solid transparent;background:var(--surface);box-shadow:0 2px 8px #23335c06;min-width:0;display:block}
+html.material3.naver-design-preview .compact-signals h3{font-size:14px;font-weight:700;line-height:1.5;margin:0 0 8px}
+html.material3.naver-design-preview .compact-signals .observation-main{padding:0;width:100%;display:block;text-align:left}
+html.material3.naver-design-preview .compact-signals #currentAir{display:grid;grid-template-columns:minmax(0,1fr) max-content max-content;gap:8px 6px;align-items:center;text-align:left}
+html.material3.naver-design-preview .compact-signals .air-station{font-size:11px;color:var(--muted);line-height:1.5;margin:0 0 3px}
+html.material3.naver-design-preview .compact-signals .air-label{font-size:12px;line-height:1.5;color:var(--muted)}
+html.material3.naver-design-preview .compact-signals .air-grade{font-size:11px;line-height:20px;min-width:32px;padding:1px 4px;border-radius:5px;font-weight:500}
+html.material3.naver-design-preview .compact-signals .air-number{font-size:23px;font-weight:750;line-height:1.3;color:var(--ink)}
+html.material3.naver-design-preview .compact-signals .air-grade-1{background:var(--good-bg);color:var(--positive)}
+html.material3.naver-design-preview .compact-signals .air-grade-2{background:var(--fair-bg);color:var(--muted)}
+html.material3.naver-design-preview .compact-signals .air-grade-3{background:var(--warning-bg);color:var(--warning);font-weight:750}
+html.material3.naver-design-preview .compact-signals .air-grade-4{background:var(--delta-bg);color:var(--delta);font-weight:750}
+html.material3.naver-design-preview #weatherWarningCard .signal-count{display:block;border:0;padding:8px 0 0;margin:0;min-height:45px;width:100%;text-align:left;font-size:25px;line-height:1.4;font-weight:750;color:var(--ink);background:none}
+html.material3.naver-design-preview #weatherWarningCard .card-minor{font-size:12px;line-height:1.5;color:var(--muted);margin:3px 0 0}
+html.material3.naver-design-preview #weatherWarningCard.has-active-warning{background:var(--warning-bg);border-color:var(--warning-border);color:var(--warning)}
+html.material3.naver-design-preview #weatherWarningCard.has-active-warning :is(h3,.signal-count,.card-minor){color:var(--warning)}
+html.material3.naver-design-preview .compact-signals>.preview-disasters{grid-column:1/-1;padding:14px 16px}
+html.material3.naver-design-preview .preview-disasters h3{font-size:13px;margin-bottom:9px}
+html.material3.naver-design-preview .preview-disaster-rows{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0}
+html.material3.naver-design-preview .preview-disaster-row,html.material3.naver-design-preview .preview-disaster-row:has(#earthquakeCoverage){display:flex;flex-direction:row;justify-content:center;align-items:baseline;gap:6px;border-right:1px solid var(--line);min-height:35px}
+html.material3.naver-design-preview .preview-disaster-row:last-child{border:0}
+html.material3.naver-design-preview .preview-disaster-row>span{font-size:12px;line-height:1.5;color:var(--muted);white-space:nowrap}
+html.material3.naver-design-preview .preview-disaster-row .signal-count{padding:0;min-height:0;width:auto;min-width:0;background:none;color:var(--ink);font-size:21px;line-height:1.5;font-weight:750;border-radius:5px}
+html.material3.naver-design-preview .preview-disaster-row .signal-count[data-result-state=active]{color:var(--delta);background:var(--delta-bg);padding:0 4px}
+html.material3.naver-design-preview .preview-disaster-row .signal-count[data-result-state=unknown]{font-size:12px;font-weight:500;color:var(--muted)}
+html.material3.naver-design-preview .compact-signals .preview-disaster-row .signal-count:not([data-result-state=active]){background:none;color:var(--ink)}
+html.material3.naver-design-preview .preview-disaster-note{display:none}
+html.material3.naver-design-preview .news.section{background:none;border:0;padding:0;margin:0;border-radius:0}
+html.material3.naver-design-preview .naver-live .naver-search-controls,html.material3.naver-design-preview #publicNewsCategories{padding:0;margin:0 0 12px;display:flex;flex-wrap:wrap;gap:8px}
+html.material3.naver-design-preview .naver-search-controls [role=group]{display:flex;gap:5px;padding:0;background:none;border-radius:0;flex-wrap:wrap}
+html.material3.naver-design-preview .naver-search-controls button{font-size:13px;line-height:1.5;padding:8px 14px;min-height:39px;border:1px solid var(--outline);border-radius:12px;background:transparent;color:var(--muted)}
+html.material3.naver-design-preview .naver-search-controls button[aria-pressed=true]{border-color:transparent;background:var(--secondary-container);color:var(--ink);font-weight:700}
+html.material3.naver-design-preview .naver-search-controls select{border:1px solid var(--outline);border-radius:10px;background:var(--surface);color:var(--ink);font-size:13px;padding:6px;min-height:39px}
+html.material3.naver-design-preview :is(#naverResults,#newsList){background:var(--surface);border-radius:22px;overflow:hidden;border:0}
+html.material3.naver-design-preview :is(.news-card,.naver-result,.naver-result:first-child){padding:16px;border:0;border-bottom:1px solid var(--line);border-left:0;background:transparent;margin:0;border-radius:0}
+html.material3.naver-design-preview :is(.news-card,.naver-result):last-child{border-bottom:0}
+html.material3.naver-design-preview :is(.news-card h3,.naver-result h3,.naver-result:first-child h3){font-size:15px;line-height:1.65;font-weight:700;letter-spacing:-.2px;color:var(--ink);margin:4px 0 7px;overflow-wrap:anywhere}
+html.material3.naver-design-preview :is(.naver-passage,.naver-description,.news-card p){font-size:14px;line-height:1.7;color:var(--muted);margin:5px 0 8px}
+html.material3.naver-design-preview :is(.news-source,.news-source time,.naver-result-meta,.naver-result-bottom){font-size:12px;line-height:1.6;color:var(--muted)}
+html.material3.naver-design-preview :is(.naver-query,.naver-search-label,.naver-attribution){font-size:11px;line-height:1.6;color:var(--muted);margin:6px 0}
+html.material3.naver-design-preview .naver-search-label{font-size:12px;font-weight:650;color:var(--ink)}
+html.material3.naver-design-preview .naver-attribution small{font-size:11px}
+html.material3.naver-design-preview .material-events{margin-top:26px}
+html.material3.naver-design-preview .material-events .event-glance{padding:16px 18px;background:var(--surface);border:1px solid transparent;border-radius:22px;margin:0;box-shadow:0 2px 8px #23335c06}
+html.material3.naver-design-preview .material-events .event-glance .eyebrow{font-size:11px;color:var(--muted);font-weight:500;letter-spacing:0}
+html.material3.naver-design-preview #eventGlanceTitle{font-size:15px;font-weight:700;line-height:1.5;color:var(--ink);margin:5px 0}
+html.material3.naver-design-preview #eventGlanceStatus{font-size:13px;line-height:1.65;color:var(--muted)}
+html.material3.naver-design-preview .material-section-heading h2{flex:none;white-space:nowrap}
+html.material3.naver-design-preview .material-section-heading .text-button{flex:none;width:auto;border:0;font-size:12px;color:var(--primary);padding:4px 0;min-height:30px}
+html.material3.naver-design-preview #previewSiteFooter{margin:30px 0 0;padding:0;color:var(--muted);font-size:12px;border:0;background:none;text-align:left}
+html.material3.naver-design-preview #previewSiteFooter .references{margin:0 0 14px;border:0;padding:0}
+html.material3.naver-design-preview #previewSiteFooter .source-compact{font-size:12px;padding:0;color:var(--muted)}
+html.material3.naver-design-preview #previewSiteFooter .endnote{font-size:12px;margin:0 0 8px;color:var(--muted);padding:0;border:0}
+html.material3.naver-design-preview #previewSiteFooter p{font-size:12px;line-height:1.7;margin:0}
+html.material3.naver-design-preview #previewSiteFooter small{font-size:11px;line-height:1.7;color:var(--muted)}
+html.material3.naver-design-preview .bottom-nav{border:0;background:var(--surface-low);color:var(--muted);padding:8px 20px calc(8px + env(safe-area-inset-bottom));gap:85px;box-shadow:0 -1px 0 var(--line);backdrop-filter:none}
+html.material3.naver-design-preview .bottom-nav button{display:flex;flex-direction:column;align-items:center;gap:3px;padding:0 20px;min-height:42px;font-size:12px;color:var(--muted)}
+html.material3.naver-design-preview .bottom-nav button svg{width:52px;height:27px;padding:4px 16px;border-radius:20px;flex:none}
+html.material3.naver-design-preview .bottom-nav button.active svg{background:var(--primary-container);color:var(--on-primary-container)}
+html.material3.naver-design-preview #sheet{background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:24px;padding:24px;max-height:88dvh}
+html.material3.naver-design-preview #sheetBody{font-size:14px;line-height:1.75}
+html.material3.naver-design-preview #sheetBody :is(p,li,td,th,label){font-size:14px;line-height:1.75}
+html.material3.naver-design-preview #sheetBody :is(h3,.field){font-size:15px}
+html.material3.naver-design-preview .sheet-header h2{font-size:20px;font-weight:700}
+html.material3.naver-design-preview :is(input,select,textarea){accent-color:var(--primary)}
+html.material3.naver-design-preview :is(.region-chips button,.province-block,.region-picker,.field input,.field select,.field textarea,.setting-row){border-color:var(--outline);color:var(--ink);background:var(--surface)}
+html.material3.naver-design-preview #planView{background:none}
+html.material3.naver-design-preview :is(.month-grid>button,.month-detail,.plan-next,.plan-card,.source-row){border:1px solid var(--line);border-radius:16px;background:var(--surface);color:var(--ink)}
+html.material3.naver-design-preview :is(.month-grid>button.selected,.primary-button){background:var(--primary-container);color:var(--on-primary-container);border-color:transparent;border-radius:14px}
+html.material3.naver-design-preview :is(.plan-toolbar,.calendar-heading){gap:10px}
+html.material3.naver-design-preview [hidden]{display:none!important}
+@media(max-width:900px){
+ html.material3 #todayView{display:flex;flex-direction:column;gap:0}
+ html.material3 #todayView>.primary{order:0}
+ html.material3 #todayView>.material-side{order:1}
+ html.material3 #todayView>.material-events{order:2;width:100%}
+ html.material3 .material-side{margin-top:24px}
+ html.material3.naver-design-preview .material-side>.attention{margin-bottom:24px}
+ html.material3.naver-design-preview .material-events{margin-top:24px}
+}
+@media(max-width:700px){
+ html.material3.naver-design-preview main{width:calc(100% - 24px);padding-top:20px}
+ html.material3.naver-design-preview .masthead{height:56px;min-height:56px;padding:0 12px;gap:5px}
+ html.material3.naver-design-preview .masthead .brand{font-size:17px;gap:6px;letter-spacing:-.6px}
+ html.material3.naver-design-preview .brand>svg{width:26px;height:29px;padding:5px;border-radius:9px}
+ html.material3.naver-design-preview .head-right{gap:3px}
+ html.material3.naver-design-preview .header-alerts{position:static}
+ html.material3.naver-design-preview .header-alerts summary{font-size:10px;gap:2px;padding:4px 5px;border-radius:10px}
+ html.material3.naver-design-preview .header-alert-menu{top:52px;left:12px;right:12px;width:auto;max-width:none}
+ html.material3.naver-design-preview .header-location{width:32px;height:32px;min-height:32px;font-size:0;padding:0;border-radius:50%;flex:none}
+ html.material3.naver-design-preview .header-location:before{content:'';display:block;width:15px;height:17px;margin:auto;background:currentColor;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.6'%3E%3Cpath d='M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z'/%3E%3Ccircle cx='12' cy='10' r='2.5'/%3E%3C/svg%3E") center/contain no-repeat}
+ html.material3.naver-design-preview #previewThemeToggle{height:32px;min-height:32px;min-width:47px;padding:0 9px;font-size:10px}
+ html.material3.naver-design-preview .head-right .icon-button{width:30px;height:32px;padding:7px}
+ html.material3.naver-design-preview #previewBriefbar{top:56px}
+ html.material3.naver-design-preview .briefbar-inner{width:calc(100% - 24px)}
+ html.material3.naver-design-preview .briefbar-main{grid-template-columns:55px minmax(135px,1fr) minmax(85px,.7fr);min-height:65px;gap:8px}
+ html.material3.naver-design-preview #regionButton{height:41px;min-height:41px;border-radius:12px;padding:5px 7px;grid-template-columns:1fr 6px;gap:0}
+ html.material3.naver-design-preview #briefRegionName{font-size:9px}
+ html.material3.naver-design-preview #regionCount{font-size:13px}
+ html.material3.naver-design-preview .briefbar-weather #currentObservation{grid-template-columns:23px minmax(42px,1fr) minmax(40px,.85fr);column-gap:4px;grid-template-rows:15px 27px}
+ html.material3.naver-design-preview .briefbar-weather #currentObservation .weather-now-identity>span:not(.weather-now-precip){font-size:10px;line-height:15px}
+ html.material3.naver-design-preview .briefbar-weather #currentObservation .weather-now-identity .weather-icon{width:23px;height:24px}
+ html.material3.naver-design-preview .briefbar-weather #currentObservation:has(.weather-now-precip){grid-template-columns:23px minmax(46px,1fr) minmax(40px,.8fr)}
+ html.material3.naver-design-preview .briefbar-weather #currentObservation .weather-now-identity>.weather-now-precip{font-size:10px}
+ html.material3.naver-design-preview .briefbar-weather #currentObservation .weather-now-temp,html.material3.naver-design-preview .briefbar-weather .weather-now-humidity strong{font-size:23px;line-height:27px;letter-spacing:-1px}
+ html.material3.naver-design-preview .briefbar-weather .weather-unit-label{font-size:10px;line-height:15px}
+ html.material3.naver-design-preview .briefbar-weather :is(.weather-now-temp small,.weather-now-humidity strong small){font-size:10px}
+ html.material3.naver-design-preview .briefbar-power{padding-left:9px;gap:4px;min-height:42px}
+ html.material3.naver-design-preview .briefbar-power small{font-size:10px;line-height:15px;white-space:nowrap}
+ html.material3.naver-design-preview #briefReserve{font-size:23px;line-height:27px}
+ html.material3.naver-design-preview #briefReserve small{font-size:10px}
+ html.material3.naver-design-preview .brief-mini{width:36px;min-width:25px;flex:1;max-width:45px}
+ html.material3.naver-design-preview #briefDemandGraph{width:100%;height:27px}
+ html.material3.naver-design-preview .briefbar-news{height:35px;gap:5px}
+ html.material3.naver-design-preview #briefKepco{gap:5px;font-size:11px}
+ html.material3.naver-design-preview #briefKepco>b{font-size:9px;padding:1px 5px}
+ html.material3.naver-design-preview .headline-window{font-size:11px}
+ html.material3.naver-design-preview .brief-outage{font-size:10px;padding:4px 7px;gap:2px}
+ html.material3.naver-design-preview :is(.tier-heading h2,.attention-top h2,.news>.section-title h2,.material-section-heading h2){font-size:18px}
+ html.material3.naver-design-preview .tier-heading h2{font-size:21px}
+ html.material3.naver-design-preview #homeClock{font-size:10px}
+ html.material3.naver-design-preview .demand-overview{gap:8px}
+ html.material3.naver-design-preview :is(.demand-live,.demand-difference){padding:10px 12px;border-radius:18px;grid-template-rows:34px 18px;gap:3px}
+ html.material3.naver-design-preview .demand-live .supply-metrics strong,html.material3.naver-design-preview #demandCompareValue{font-size:30px;line-height:34px;letter-spacing:-1px}
+ html.material3.naver-design-preview .demand-live .supply-metrics>div>span,html.material3.naver-design-preview #demandCompareTitle{font-size:11px}
+ html.material3.naver-design-preview .demand-live .supply-metrics>.supply-main{gap:3px}
+ html.material3.naver-design-preview .demand-live .supply-metrics>div>span{font-size:10px;white-space:nowrap}
+ html.material3.naver-design-preview .demand-live .supply-metrics small,html.material3.naver-design-preview #demandCompareValue small{font-size:11px}
+ html.material3.naver-design-preview .demand-support>div{font-size:10px;gap:2px}
+ html.material3.naver-design-preview .demand-support strong{font-size:11px}
+ html.material3.naver-design-preview .demand-support small{font-size:9px}
+ html.material3.naver-design-preview #demandCompareCaption{font-size:10px;line-height:18px}
+ html.material3.naver-design-preview #demandCompareAmount{font-size:11px;line-height:18px}
+ html.material3.naver-design-preview :is(.demand-outlook,.supply-panel.demand-generation){padding:13px 7px 7px}
+ html.material3.naver-design-preview :is(.demand-topline h3,.demand-generation .supply-heading h3){font-size:16px}
+ html.material3.naver-design-preview #demandExampleChart{height:235px}
+ html.material3.naver-design-preview #powerFlowChart{height:230px}
+ html.material3.naver-design-preview .compact-signals>.local-card{padding:13px}
+ html.material3.naver-design-preview .compact-signals .air-number{font-size:21px}
+ html.material3.naver-design-preview .preview-disaster-row{gap:4px;flex-wrap:wrap}
+ html.material3.naver-design-preview .preview-disaster-row>span{font-size:12px}
+ html.material3.naver-design-preview .preview-disaster-row .signal-count{font-size:21px}
+ html.material3.naver-design-preview .preview-disaster-row .signal-count[data-result-state=unknown]{font-size:12px}
+ html.material3.naver-design-preview :is(.news-card,.naver-result,.naver-result:first-child){padding:15px 14px}
+ html.material3.naver-design-preview #sheet{border-radius:24px 24px 0 0;padding:20px 18px calc(20px + env(safe-area-inset-bottom));width:100%;max-width:none}
+ html.material3.naver-design-preview #previewSiteFooter{margin-top:25px}
+}

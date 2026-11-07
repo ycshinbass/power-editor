@@ -1,0 +1,32 @@
+/* Unapproved exploratory layer. Not loaded by the app; no production changes.
+   Direction: bright electrical-operations console, not a neon dashboard. */
+:root{--ink:#172d42;--muted:#66798b;--blue:#24638e;--line:#dbe5ed;--soft:#f3f7fa}
+body{background:#f9fbfd}
+.masthead{background:#fff;border-bottom:1px solid #dce6ee}
+.brand{letter-spacing:-.065em}
+.page-heading h1{font-weight:750;letter-spacing:-.065em}
+.tier-kicker{font-size:10px;letter-spacing:.1em;font-weight:700}
+.tier-one{position:relative;isolation:isolate;overflow:hidden;background:linear-gradient(115deg,#102b43,#1c415b);border:1px solid #244f68;border-top:1px solid #6094ac;border-radius:12px;box-shadow:0 8px 24px #122f4612;padding:19px 20px}
+.tier-one::before{content:'';position:absolute;left:20px;top:0;width:62px;height:2px;background:#83c4d3}
+.tier-one::after{content:'';position:absolute;z-index:-1;right:-20px;top:0;width:150px;height:100%;opacity:.13;background:repeating-linear-gradient(90deg,transparent 0 29px,#89a8bb 30px,transparent 31px),repeating-linear-gradient(0deg,transparent 0 29px,#89a8bb 30px,transparent 31px);mask-image:linear-gradient(90deg,transparent,#000)}
+.tier-one .attention-status{font-size:10px;letter-spacing:.02em;background:#25465e!important;border:1px solid #6b8b9f!important;border-radius:5px}
+.tier-one .attention-foot{border-color:#46687f}
+.tier-one .tier-kicker{color:#a9cbdc}
+.coverage-chips{gap:7px 13px}
+.supply-panel{border:1px solid #cbdce8;border-top:2px solid #497d9b;border-radius:10px;background:linear-gradient(140deg,#fff,#f1f6fa);padding:16px 18px 10px;box-shadow:0 3px 14px #22445e04}
+.supply-heading h3{font-weight:700;letter-spacing:-.04em}
+.supply-metrics strong{font-family:ui-monospace,'SFMono-Regular',Consolas,'Liberation Mono',monospace;font-weight:600;font-variant-numeric:tabular-nums;letter-spacing:-.07em;font-size:25px}
+.supply-main strong{font-size:34px;color:#236585}
+.supply-metrics small{font-family:Arial,sans-serif;letter-spacing:0}
+.supply-metrics>div>span{font-size:10px;letter-spacing:-.01em;color:#566f82}
+.supply-metrics>div+div{border-left-color:#d2e0ea}
+.sample-label{border:1px solid #e6dfce;background:#fbf9f1;border-radius:4px}
+.supply-details summary{border-top:1px solid #dce6ee;margin-top:8px}
+.news{border-top:2px solid #3b657f}
+.news-meta .news-tag{background:#edf4f8;border:1px solid #dde9f0;border-radius:3px;padding:2px 6px}
+.news-card{border-bottom-color:#dbe5ed}
+.news-card h3{letter-spacing:-.055em}
+.reference-details,.reference-action{border-color:#dae5ed}
+.bottom-nav{background:#fffffff5;backdrop-filter:blur(14px);border-top:1px solid #d2e0e9}
+@media(max-width:760px){.tier-one{padding:16px}.tier-one::before{left:16px}.supply-panel{padding:13px 12px 8px}.supply-metrics{gap:8px}.supply-metrics>div+div{padding-left:8px}.supply-metrics strong{font-size:21px}.supply-main strong{font-size:30px}.supply-metrics small{font-size:9px;margin-left:3px}}
+@media(max-width:350px){.supply-panel{padding-left:10px;padding-right:10px}.supply-metrics{gap:6px}.supply-metrics>div+div{padding-left:6px}.supply-metrics strong{font-size:18px}.supply-main strong{font-size:27px}.supply-metrics>div>span{font-size:9px}}

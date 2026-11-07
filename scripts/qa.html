@@ -1,0 +1,57 @@
+<!doctype html><html lang="ko"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="stylesheet" href="/style.css"><title>지역 카드·전력 그래프 검토 · 합성 자료</title><style>body{padding:20px;background:var(--soft)}.qa-list{display:flex;align-items:flex-start;gap:20px;flex-wrap:wrap}.qa-frame{padding:16px;background:var(--surface);box-sizing:border-box;flex:none}.qa-frame h2{font-size:17px;margin-bottom:12px}.qa-frame .supply-panel{padding:12px}.qa-note{margin:10px 0;font-size:14px}.qa-result{padding:12px;background:#def3e6;font:14px monospace;white-space:pre-wrap}</style><h1>지역 카드·전력 그래프 반응형 검토</h1><p class="qa-note">합성 자료만 사용 · 외부 API 호출 없음 · 320/390/768/1184px 프레임</p><div class="theme-choice" role="group" aria-label="검토 화면 모드"><button data-theme-choice="light">주간</button><button data-theme-choice="dark">야간</button></div><div id="headers" class="qa-list"></div><label>지역 카드 합성 시나리오 <select id="scenario"><option value="positive">지역 근거 확인 보도</option><option value="zero">수집 성공 · 일치 보도 없음</option><option value="stale">오래된 중앙 저장본</option><option value="fail">수집 실패</option><option value="unmapped">지역 근거 미확인</option><option value="duplicates">중복 기사</option><option value="short-cache">짧은 캐시 대기</option><option value="long-age">장시간 경과</option></select></label><label><input type="checkbox" id="nationwide"> 전국 범위</label><div id="airframes" class="qa-list"></div><dialog id="qaDetail"><h2>합성 보도 상세 · 실제 보도 아님</h2><div id="qaDetailBody"></div><button id="qaClose">닫기</button></dialog><div id="checks" class="qa-result">검증 중</div><div class="qa-list" id="frames"></div><script type="module">
+import {initTheme} from '/theme.js';
+for(const width of [320,390,1184]){const f=document.createElement('section');f.className='qa-frame';f.style.cssText=`width:${width}px;padding:0`;f.innerHTML='<header class="masthead"><a class="brand" href="#">우리지역 전력에디터</a><div class="head-right"><div class="theme-choice" role="group" aria-label="화면 모드"><button data-theme-choice="light">주간</button><button data-theme-choice="dark">야간</button></div><button class="icon-button" aria-label="설정">☰</button></div></header>';document.querySelector('#headers').append(f)}
+initTheme();
+import {mountPowerFlow} from '/power-flow.js';
+import {airStationMarkup} from '/air-location.js';
+import {publicResultState,outageNewsState,scopedPublicSignal} from '/logic.js';
+const cardTemplate=await fetch('/index.html').then(r=>r.text()).then(html=>new DOMParser().parseFromString(html,'text/html').querySelector('.local-cards'));
+const qaNow=Date.now(),qaTime=new Date(qaNow).toISOString();
+const report={id:'qa-report',sourceId:'sbs',sourceName:'합성 SBS 예시',sourceType:'press',title:'[합성 검토 자료] 순천 일부 지역 정전 복구',url:'https://example.com/qa-outage',publishedAt:qaTime,checkedAt:qaTime,scope:'local',regionEvidence:{type:'publisher_metadata',url:'https://example.com/qa-outage',regions:['순천']}};
+const baseSnapshot={status:'ok',checkedAt:qaTime,items:[report],sources:[{id:'sbs',name:'합성 SBS 예시',kind:'press',status:'ok',checkedAt:qaTime}]};
+const frames=[];
+for(const width of [320,390,768,1184]){
+ const f=document.createElement('section');f.className='qa-frame';f.style.width=width+'px';f.innerHTML=`<h2>${width}px · 합성 지역 카드</h2>`;
+ const cards=cardTemplate.cloneNode(true);f.append(cards);document.querySelector('#airframes').append(f);frames.push(cards);
+}
+const stamp=value=>value?new Date(value).toLocaleString('ko-KR',{timeZone:'Asia/Seoul'})+' KST':'미확인';
+function showReports(v,regions){
+ const body=document.querySelector('#qaDetailBody');body.replaceChildren();
+ for(const text of [v.label,v.notice,regions.length?'선택 지역: '+regions.join(' · '):'전국 범위','수집 '+stamp(v.checkedAt),'아래 링크는 example.com 합성 자료입니다. 실제 기사나 실제 정전이 아닙니다.']){const p=document.createElement('p');p.textContent=text;body.append(p)}
+ for(const item of v.items||[]){const p=document.createElement('p'),link=document.createElement('a');link.href=item.url;link.target='_blank';link.rel='noopener noreferrer';link.textContent=item.title;p.append(link);const meta=document.createElement('p');meta.textContent=item.sourceName+' · 발표 '+stamp(item.publishedAt)+' · 지역 근거: '+(item.regionEvidence?.regions?.join(' · ')||'미확인');body.append(p,meta)}
+ document.querySelector('#qaDetail').showModal();
+}
+function drawCards(){
+ const scenario=document.querySelector('#scenario').value,regions=document.querySelector('#nationwide').checked?[]:['순천'];
+ const old=new Date(qaNow-30*3600000).toISOString();
+ let snapshot=structuredClone(baseSnapshot);
+ if(scenario==='zero')snapshot.items=[];
+ if(scenario==='stale'){snapshot.checkedAt=old;snapshot.stale=true;for(const source of snapshot.sources){source.checkedAt=old;source.stale=true;source.status='stale'}}
+ if(scenario==='fail'){snapshot.status='unavailable';snapshot.items=[];snapshot.sources[0].status='error'}
+ if(scenario==='unmapped')delete snapshot.items[0].regionEvidence;
+ if(scenario==='duplicates')snapshot.items.push({...report,id:'qa-duplicate'});
+ const v=outageNewsState(snapshot,regions,{now:qaNow,failed:scenario==='fail'});
+ for(const cards of frames){
+  const set=(id,text,result='confirmed')=>{const e=cards.querySelector('#'+id);e.textContent=text;e.dataset.resultState=result};
+  const aged=scenario==='long-age',failed=scenario==='fail';
+  // Weather fixture is 121 minutes old in long-age; short-cache is 20 minutes old.
+  cards.querySelector('#currentObservation').title='관측 '+stamp(new Date(qaNow-(aged?121:scenario==='short-cache'?20:0)*60000).toISOString());
+  set('currentObservation','순천 18.2℃'+(aged?' · 이전 관측':failed?' · 갱신 확인 필요':''),aged||failed?'unknown':'confirmed');
+  cards.querySelector('#currentAir').innerHTML=airStationMarkup({station:'덕충동',referenceAt:qaTime,pm10:21,pm25:80,pm10Grade1h:1,pm25Grade1h:4,stale:false});
+  for(const [id,element] of [['weather','warningCoverage'],['fire','fireCoverage'],['landslide','landslideCoverage']]){
+   const signal={id,status:failed?'unavailable':'ok',count:0,records:[],checkedAt:new Date(qaNow-(aged?61:scenario==='short-cache'?20:0)*60000).toISOString()};
+   const state=scopedPublicSignal(signal,regions,qaNow);set(element,state.label.replace(/관심지역\s*/g,''),publicResultState(state.label));cards.querySelector('#'+element).setAttribute('aria-label',state.label);
+   cards.querySelector('#'+element).onclick=()=>{document.querySelector('#qaDetailBody').textContent=state.label+' · 마지막 성공 조회 '+stamp(signal.checkedAt)+' · 합성 자료';document.querySelector('#qaDetail').showModal()};
+  }
+  set('earthquakeCoverage','조회 완료');set('outageState',v.label,['stale','failed','unavailable','loading'].includes(v.kind)?'unknown':'confirmed');
+  const minor=cards.querySelector('#outageCoverage .card-minor');if(minor)minor.textContent='최근 72시간 · 수집된 언론 제목 기준';set('outageUpdated',v.checkedAt?'수집 '+stamp(v.checkedAt):'뉴스 수집 결과를 기다립니다.');
+  cards.querySelector('#outageCoverage').onclick=()=>showReports(v,regions);
+ }
+}
+document.querySelector('#scenario').onchange=drawCards;document.querySelector('#nationwide').onchange=drawCards;document.querySelector('#qaClose').onclick=()=>document.querySelector('#qaDetail').close();drawCards();
+const date='2026-11-02' ,now=Date.parse(date+'T10:00:00+09:00');
+const today=Array.from({length:121},(_,i)=>{const gas=20000+Math.sin(i/20)*3000,pump=i>90?-300:0;return{at:new Date(Date.parse(date+'T00:00:00+09:00')+i*300000).toISOString(),total:45000+gas+pump,fuels:{nuclear:30000,gas,fuelPwr1:3000,fuelPwr2:1000,fuelPwr3:8000,fuelPwr5:pump,fuelPwr7:1000,renewable:2000}}});
+const data={date,unit:'MW',seriesValidated:true,intervalMinutes:5,fuelKeys:[{key:'fuelPwr1',label:'수력'},{key:'fuelPwr2',label:'유류'},{key:'fuelPwr3',label:'유연탄'},{key:'nuclear',label:'원자력'},{key:'fuelPwr5',label:'양수'},{key:'gas',label:'가스'},{key:'fuelPwr7',label:'국내탄'},{key:'renewable',label:'신재생'}],today,previous:Array.from({length:288},(_,i)=>({at:new Date(Date.parse('2026-11-01T00:00:00+09:00')+i*300000).toISOString(),total:54000+Math.sin(i/50)*6000}))};
+for(const width of [320,390,768,1184]){const f=document.createElement('section');f.className='qa-frame';f.style.width=width+'px';f.innerHTML=`<h2>${width}px · 합성 자료</h2><section class="supply-panel"><div class="supply-heading"><h3>하루 발전출력 · 발전원 구성</h3></div><p class="qa-note">한국시간 00–24시 · 단위 MW</p><svg class="power-flow-chart"></svg><div class="flow-legend"></div><p class="flow-tooltip caption"></p><div class="supply-metrics"><div class="supply-main"><span>공급예비율</span><strong>44.10<small>%</small></strong></div><div><span>공급예비력</span><strong>127,905<small>MW</small></strong></div><div><span>현재수요(전력시장)</span><strong>—<small>MW</small></strong></div></div><p class="supply-caption">큰 수치와 결측값 정렬 확인 · 실제 관측값 아님</p></section>`;document.querySelector('#frames').append(f);mountPowerFlow(f.querySelector('svg'),data,{date,now},{legendElement:f.querySelector('.flow-legend'),tooltipElement:f.querySelector('.flow-tooltip')})}
+setTimeout(()=>{const checks=[...document.querySelectorAll('.qa-frame')].map(f=>{const svg=f.querySelector('svg');if(!svg)return `${f.style.width}: air overflow ${f.scrollWidth>f.clientWidth}`;const box=svg.getBoundingClientRect(),labels=[...svg.querySelectorAll('text')];const clipped=labels.filter(n=>{const r=n.getBoundingClientRect();return r.left<box.left-.5||r.right>box.right+.5});return`${f.style.width}: axis ${getComputedStyle(labels[0]).fontSize}, SVG ${Math.round(box.width)}×${Math.round(box.height)}, overflow ${f.scrollWidth>f.clientWidth}, clipped labels ${clipped.length}`});document.querySelector('#checks').textContent=checks.join('\n')},400);
+</script></html>

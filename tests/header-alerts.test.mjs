@@ -1,0 +1,24 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import vm from 'node:vm';
+import {readFileSync} from 'node:fs';
+const source=readFileSync(new URL('../frontend/naver-preview.js',import.meta.url),'utf8');
+test('header warnings stay compact, expose every active category and open the matching detail',()=>{
+ const make=()=>({attributes:{},handlers:{},hidden:true,open:false,setAttribute(k,v){this.attributes[k]=v},addEventListener(k,fn){this.handlers[k]=fn}});
+ const box=make(),label=make(),summary={...make(),focus(){this.focused=true}},menu=make(),outsideHandlers={};let inserted,opened;
+ box.querySelector=selector=>({'.header-alert-label':label,'.header-alert-menu':menu,summary})[selector];box.contains=node=>node===summary;
+ const ctx=vm.createContext({document:{createElement:tag=>{assert.equal(tag,'details');return box},querySelector:()=>({after:node=>{inserted=node}}),addEventListener:(event,fn)=>{outsideHandlers[event]=fn},getElementById:id=>id==='briefAlerts'?box:{click(){opened=id}}},text:(el,value)=>{el.textContent=value},html:(el,value)=>{el.innerHTML=value}});
+ const setup=source.slice(source.indexOf("  const headerAlerts=document.createElement('details');"),source.indexOf("  const airNote="));
+ const render=source.slice(source.indexOf("    const alertBox=document.getElementById('briefAlerts');"),source.indexOf("    html(document.getElementById('briefReserve')"));
+ vm.runInContext(setup,ctx);assert.equal(inserted,box);
+ const show=alerts=>{ctx.alerts=alerts;vm.runInContext('{'+render+'}',ctx)};
+ show([{id:'warningCoverage',count:1,label:'강풍 주의보 1건'}]);assert.equal(box.hidden,false);assert.equal(label.textContent,'강풍 주의보 1건');assert.match(summary.attributes['aria-label'],/강풍 주의보 1건/);
+ show([{id:'warningCoverage',count:1,label:'기상특보 1건'},{id:'fireCoverage',count:2,label:'산불 2건'},{id:'landslideCoverage',count:1,label:'산사태 경보 1건'},{id:'earthquakeCoverage',count:1,label:'국내 지진 1건 · 최근 발표'}]);
+ assert.equal(label.textContent,'특보·재난 5건');for(const id of ['warningCoverage','fireCoverage','landslideCoverage','earthquakeCoverage'])assert.ok(menu.innerHTML.includes('data-alert-target="'+id+'"'));
+ show([{id:'warningCoverage',count:1,label:'<기상> & "특보" 1건'}]);assert.doesNotMatch(menu.innerHTML,/<기상>/);assert.match(menu.innerHTML,/&lt;기상&gt; &amp;/);
+ vm.runInContext(source.split('\n').find(line=>line.includes("document.getElementById('briefAlerts').onclick=")),ctx);
+ box.open=true;box.onclick({target:{closest:()=>({dataset:{alertTarget:'fireCoverage'}})}});assert.equal(opened,'fireCoverage');assert.equal(box.open,false);
+ box.open=true;outsideHandlers.click({target:summary});assert.equal(box.open,true);outsideHandlers.click({target:{}});assert.equal(box.open,false);
+ box.open=true;box.handlers.keydown({key:'Escape'});assert.equal(box.open,false);assert.equal(summary.focused,true);
+ box.open=true;show([]);assert.equal(box.hidden,true);assert.equal(box.open,false);assert.equal(label.textContent,'');
+});

@@ -1,0 +1,143 @@
+{
+  "schemaVersion": 1,
+  "categories": {
+    "kepco": {
+      "status": "ok",
+      "category": "kepco",
+      "items": [
+        {
+          "title": "인포시즈, 한국전력 ‘전력망 AI 전환 실증사업’ 성과 공개",
+          "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE9acWxMY0N6cl9mbldaZWtEaVlMSGhHaldTUnh5WFkwV3h6ZElMTnlIc1BySEZkRmk3akRwQVI0ZGlOSFRFdXJkbUtQQktseXYyakZUWUlLbF9JZ3NSWThVU1d3U0tib0JaNV93",
+          "publishedAt": "2026-11-05T23:58:00.000Z",
+          "publisherName": "FA저널",
+          "regions": []
+        },
+        {
+          "title": "한전KDN, 홍성 공공 유휴부지에 태양광 발전사업 추진",
+          "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE4wNkh0eEVpQUZjY1RCWF90M2l6aWcxTm5tUFlfMjhkdVNJSXY5RGR2T3gzUTVJNW5FbUFSVnNVRmg3c0ZCY3o1M2ZDSk9PM1BVRkV2RUhJakczUlp6OUlvamYtODBJVW_SAWtBVV95cUxOaUtNQkxwTy1KSU1CSmg2WWNXY0pBd3JVdVdrN2pPQW5PaC1oU3M0d3lpd2p5cU9sRFg1LUxYVkpMb3QzTnhieE1OWDlLS3pqb2gwRlF3QWVXVjhlM1hrT01WSjBuTElqUHJTcw",
+          "publishedAt": "2026-11-05T23:53:14.000Z",
+          "publisherName": "핸드메이커",
+          "regions": [
+            "홍성"
+          ]
+        },
+        {
+          "title": "한전 ‘에너지산업 로봇기술 컨퍼런스’ 개최",
+          "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE4yZ1E5dV9FM1IzZklGV3hSbUJqcm5ZNnlJODVWNEUzeENkcEg5a2N6U2FHbnJuUnhmMHNlVHd0ajg1VFRPSXlZWWQzS2VCTjEtQW9BMzkyZTdzVjdMT2VXRkthY3ZvZHFUWWNDeQ",
+          "publishedAt": "2026-11-05T23:28:55.000Z",
+          "publisherName": "투데이에너지",
+          "regions": []
+        },
+        {
+          "title": "한전KDN, 가스공사와 'AX·DX 및 ESG 경영' 협력 약속",
+          "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxQSjZrOTZ0TGN4dXhpRnBGcFFhQVMzektiUm9XaTJhazlzVjRicHNNUVVKSlZxUUF2dE9SRzVfNVdIbG1iVjcwbW41ZkZvUHBFZ3ZWdUFDSEViNVp4Mi1qV1Btd0hMRkJtcUJaM3NrRkRLUEpuSjBKNEhDUDhwYzk2OVNnRkR4bDZKa1pJV3JiU1hDUGd2QXc0X0lEcFZoQk11em9jcGRjUklGbksxUkhVT2huSXNuby1Cb2JqN0ZSU19rcms",
+          "publishedAt": "2026-11-05T23:27:00.000Z",
+          "publisherName": "데일리안",
+          "regions": []
+        },
+        {
+          "title": "켄텍 황지현·이현우 교수 연구팀, 한전 기초연구사업 성과 인정",
+          "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTFBMc2M0WVRXZU8wdEYxbklaeTktYXpGYlo3OEZGMlk2TEt4UVNXRlM0WkkxUlI5MVpUR2kzNXNBSW5mSUdjXzhneTFleVpmdXJQNFV6akxNX2p5UXc4cGJtR3hYT0JVM1NiUlpZ0gFwQVVfeXFMT0h1aVdfVmM0Rl9ySXdhSDRUSjVwWnhVLU9heFplLWJmTEQ2UlZsVzlkb0RPUk5SSGNTVE9NVUt3NUNMa1J5NmozU3F4TmRvRTJkNFJVTnlzcDRYdjkwdnpkU0FEWmh5bTFBT1BzTGE3Ug",
+          "publishedAt": "2026-11-05T23:05:19.000Z",
+          "publisherName": "전기신문",
+          "regions": []
+        }
+      ],
+      "checkedAt": "2026-11-06T00:21:33.409Z"
+    },
+    "power": {
+      "status": "ok",
+      "category": "power",
+      "items": [
+        {
+          "title": "데이터센터 반대 민심 확인한 오픈AI \"전력망 비용 전액 부담\"",
+          "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE1yRU1VaUZkRjR1VkZrUmtBc09YbV9kSGlnUmMtSmhQUkhDa3FSS3hWa2pCX091QzR0MGgwcklKeTNlTTVyd1VQc3J2SGNmWWJCSU5fU2FDdGxtZEXSAWBBVV95cUxNV3dwQkd5aGpzOXAzcU1ocWZPczFvTk5fMmF6V3BmSlptVzJ5cnhHZlNBS2lUV3ptTElIWmFER180NHRubUU0Mkx4ZVJSaDB4dEhVSEtWT1AxaFNDb3ZQY2Q",
+          "publishedAt": "2026-11-06T00:06:06.000Z",
+          "publisherName": "연합뉴스",
+          "regions": []
+        },
+        {
+          "title": "인포시즈, 한국전력 ‘전력망 AI 전환 실증사업’ 성과 공개",
+          "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE9acWxMY0N6cl9mbldaZWtEaVlMSGhHaldTUnh5WFkwV3h6ZElMTnlIc1BySEZkRmk3akRwQVI0ZGlOSFRFdXJkbUtQQktseXYyakZUWUlLbF9JZ3NSWThVU1d3U0tib0JaNV93",
+          "publishedAt": "2026-11-05T23:58:00.000Z",
+          "publisherName": "FA저널",
+          "regions": []
+        },
+        {
+          "title": "위험 현장 대신 들어가는 에너지 인프라 로봇…E.ON·노이라 로보틱스, 피지컬 AI 전력망 도입 실증 착수",
+          "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTFBmcHlpTEo3UGcydk5iUVdfeDJuTWdsalJqX1VtMUhkbDF6Wk44WTg1X3FOazI2bG13MW9uZjNkSnI3Rzh3ZXZkV2w1YnVzRlFhM1dzdEkyeUJzQkRFRmFwRmNDNU44UTNz",
+          "publishedAt": "2026-11-05T22:39:31.000Z",
+          "publisherName": "https://www.2news.co.kr/",
+          "regions": []
+        },
+        {
+          "title": "한전KDN, BIXPO 2026서 AI 전력망·연료가격 예측기술 공개",
+          "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTFBEU3lmNkE0bkMyY1hOVkxFM25HT0o5RHNvZkVwZlhWMDNVMUpaY3dqUmNwZm0tQ0R1cTRtRTF6UEdaOHdsakxJNm52UE1FdUZid1FWelNHU01TMkxJV0h2Y1BUNGo",
+          "publishedAt": "2026-11-05T20:18:15.000Z",
+          "publisherName": "에너지안전신문",
+          "regions": []
+        },
+        {
+          "title": "[허원순의 경제로 세상보기] AI 강국 외치면서 전력망 깔 돈은 없다니",
+          "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE1IS2wxclhnYk1ubnpMSTNweHlsN09QYWpEMWg1MjdqakQ3ZUJyZHpBZE45Um41RkRJa0FhQTlFRWVraHVENHNKYXhlU2ktY3pieG9Ld3BMTHZLM2VoN0p2eGkwVlM1dVg5c2lQT9IBcEFVX3lxTE9qQUpZaVFiOHFzUVN4anB3N05DZTFEdGlyUHdfV0l3eENFZ0dNVm1ldTFaOUhVZlB1dzlDMmlodFVnSTZmZmJ3UHZMMWZxUmgyX1hQcDNRZUtIUUoxMmdDQVNGNTZqQVMyU3hUQVdtdHQ",
+          "publishedAt": "2026-11-05T19:00:00.000Z",
+          "publisherName": "글로벌경제신문",
+          "regions": []
+        }
+      ],
+      "checkedAt": "2026-11-06T00:21:36.516Z"
+    },
+    "outage": {
+      "status": "ok",
+      "category": "outage",
+      "items": [
+        {
+          "title": "전남광주 황금동 상가 일대 정전…3시간 만에 복구",
+          "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE1HOHZlV2JKaG15WWg2YkM0am02djhka1VVcGFUNXdoSVJEZDhrREFrWkowcEJXZzJqMGJtejJMTFlZd0Q5eVl6dDZtNHNENWgtbFpKVVdUUUVJMllRNDlmWTZkMnJ4M0I1bldfbjhYOG7SAXBBVV95cUxNRzh2ZVdiSmhteVloNmJDNGptNnY4ZGtVVXBhVDV3aElSRGQ4a0RBa1pKMHBCV2cyajBibXoyTExZWXdEOXlZenQ2bTRzRDVoLWxaSlVXVFFFSTJZUTQ5Zlk2ZDJyeDNCNW5XX244WDhu",
+          "publishedAt": "2026-11-05T13:37:24.000Z",
+          "publisherName": "남도일보",
+          "regions": [
+            "전남광주"
+          ]
+        },
+        {
+          "title": "전남광주 동구 황금동 일대 정전…3시간 만에 복구",
+          "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE9LRVZDSW5ON20xazNQaE53TnVOVXVuempjUGhqVEFEb3lqcXJEV2NQTDVBdmp2Z01qOW93RTdOdHE2aE5jOFpxSG1ySHF0YUJxVXVKRWFINW5xNk3SAWBBVV95cUxPeEYwb1JZc0dXZHotQXdZczNMQ21hMXZzXzM1SEdZWVFNWkF4NTk1VGg0SXM3R09Va1FnZldzMGpwb2hmS0lLazFXcEZkVlJNQ1Bodm1uMHpQX2Z1bE80bG4",
+          "publishedAt": "2026-11-05T11:27:03.000Z",
+          "publisherName": "연합뉴스",
+          "regions": [
+            "광주 동구"
+          ]
+        },
+        {
+          "title": "전남광주 충장로서 간판 화재로 다수 상점 정전…한전, 복구 중",
+          "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE9vZ1Z4TjhWVzNycnV6NFFSZWVqY2ExN1YtZjBoV21IeXZwNXZpM0ZmU1FlTC1PMzl1dER3NFk1OUwxMTRnZ25kN21nWHVGa29UZE9CUDZpekljTDF5UlN3",
+          "publishedAt": "2026-11-05T10:55:58.000Z",
+          "publisherName": "뉴스1",
+          "regions": [
+            "전남광주"
+          ]
+        },
+        {
+          "title": "부산 기장군 일대 500여 세대 정전…승강기 갇힌 주민 구조(종합)",
+          "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxON20ybGQ5cl9qM2RmdHdsbjN3VEk2SFY5b2pQRGVuVTZXdTlhZGJ5TnBwdExjd3gweWRjOERzWmQwb0lMNFphUVN2X2tYaWg1V2xCQ29VWWtMd1FiYXNmYktWNkdldlgwQ2FoTDNzaFJrdU4xWXNvZFNZc1drVkNNbWUtdEp0ekUyMTZaNG5R",
+          "publishedAt": "2026-11-05T06:43:00.000Z",
+          "publisherName": "국제신문",
+          "regions": [
+            "기장"
+          ]
+        },
+        {
+          "title": "성동구, 성동소방서와 아파트 정전사고 대응 매뉴얼 마련",
+          "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE9YVWFwT0RvbVl6YVFtZHBfS3ZHZDVleVRlZHBoZ3pBaWpILTMwWTd4R3l6NG9vWUFzcHI1T3hoYmpMOHFVSGxTSk9TWTBRM3M",
+          "publishedAt": "2026-11-05T06:37:06.000Z",
+          "publisherName": "뉴스1",
+          "regions": [
+            "서울 성동구"
+          ]
+        }
+      ],
+      "checkedAt": "2026-11-06T00:21:39.387Z"
+    }
+  }
+}
