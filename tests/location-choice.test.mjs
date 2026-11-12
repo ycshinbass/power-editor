@@ -6,11 +6,11 @@ import {restoreLocationChoice} from '../frontend/location-onboarding.js';
 import {REGION_CATALOG} from '../frontend/regions.js';
 import {nearestCity} from '../frontend/logic.js';
 
-test('return visits reuse only an explicit choice with an already granted permission',async()=>{
+test('already granted permission restores location regardless of legacy choice without prompting',async()=>{
  for(const choice of [null,'later','requested'])for(const state of ['prompt','denied','granted']){
   let calls=0;
   await restoreLocationChoice({storage:{getItem:()=>choice},permissions:{query:async()=>({state})},onAllow:()=>calls++});
-  assert.equal(calls,choice==='requested'&&state==='granted'?1:0);
+  assert.equal(calls,state==='granted'?1:0);
  }
  await restoreLocationChoice({storage:{getItem:()=> 'requested'},permissions:undefined,onAllow:()=>assert.fail('permission unavailable')});
 });
@@ -39,4 +39,13 @@ test('weather point changes clear old observations immediately and refresh both 
  assert.equal(vm.runInContext('weatherData',context),null);
  assert.ok(calls.includes('model'));assert.deepEqual(calls.at(-1),['weather','weatherForecast']);
  await context.setWeatherCity('수원시 영통구');assert.equal(vm.runInContext('weatherLocationMode',context),'manual');
+});
+
+test('automatic restoration removes obsolete onboarding and preserves manual weather selection',async()=>{
+ let removed=0,calls=0;
+ await restoreLocationChoice({permissions:{query:async()=>({state:'granted'})},doc:{getElementById:()=>({remove:()=>removed++})},onAllow:()=>calls++});
+ assert.equal(removed,1);assert.equal(calls,1);
+ const app=await readFile(new URL('../frontend/app.js',import.meta.url),'utf8');
+ const startup=app.split('if(!naverPreview){const locationShown=')[1].split('\n')[0];
+ for(const mode of ['manual','current']){let restored=0;vm.runInNewContext('{const locationShown='+startup,{mountLocationChoice:()=>true,requestAirLocation(){},regionConfirmed:true,regionSheet(){},weatherLocationMode:mode,restoreLocationChoice:()=>restored++});assert.equal(restored,mode==='current'?1:0);}
 });

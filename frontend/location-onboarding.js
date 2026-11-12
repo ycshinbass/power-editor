@@ -14,6 +14,6 @@ export function mountLocationChoice({doc=document,storage=localStorage,onAllow}=
 }
 
 // Reuse an existing grant without triggering a permission prompt on return visits.
-export async function restoreLocationChoice({storage=localStorage,permissions=navigator.permissions,onAllow}={}){
- try{if(storage.getItem(KEY)==='requested'&&(await permissions?.query({name:'geolocation'}))?.state==='granted')onAllow();}catch{}
+export async function restoreLocationChoice({permissions=globalThis.navigator?.permissions,onAllow,doc=globalThis.document}={}){
+ try{if((await permissions?.query({name:'geolocation'}))?.state==='granted'){doc?.getElementById('locationFirstVisit')?.remove();onAllow();}}catch{}
 }

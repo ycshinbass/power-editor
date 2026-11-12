@@ -302,7 +302,7 @@ document.addEventListener('visibilitychange',()=>{if(!document.hidden)refreshFoc
 
 refreshLocalData();refreshSupply();$('#refresh').addEventListener('click',()=>{refreshLocalData();refreshSupply()});
 
-if(!naverPreview){const locationShown=mountLocationChoice({onAllow:requestAirLocation});if(!regionConfirmed&&!locationShown)regionSheet();if(!locationShown&&weatherLocationMode!=='manual')void restoreLocationChoice({onAllow:requestAirLocation});}
+if(!naverPreview){const locationShown=mountLocationChoice({onAllow:requestAirLocation});if(!regionConfirmed&&!locationShown)regionSheet();if(weatherLocationMode!=='manual')void restoreLocationChoice({onAllow:requestAirLocation});}
 
 const stopVisibleRefresh=onVisibleRefresh(document,()=>{if(resumeLocalParts.length||resumeSupply){resumeInterrupted();return}refreshLocalData();refreshSupply();refreshDemand();refreshPublicSignals()});
 touchRefresh=stopVisibleRefresh.touch;
