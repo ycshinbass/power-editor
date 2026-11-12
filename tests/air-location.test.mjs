@@ -9,7 +9,7 @@ import vm from 'node:vm';
 test('actual geolocation controls are explicit, recover from denial/timeout, and clear old nearest values',async()=>{
  const app=await readFile(new URL('../frontend/app.js',import.meta.url),'utf8'),els=new Map(),callbacks=[];
  const $=id=>{if(!els.has(id))els.set(id,{textContent:'',disabled:false});return els.get(id)};
- const ctx=vm.createContext({selectAirStation,weatherCity:'순천',nearestAirStations,airStationText,airStationMarkup,$,navigator:{geolocation:{getCurrentPosition(ok,error,options){callbacks.push({ok,error,options})}}},Number,stamp:()=> '09:00',localData:{airQuality:{items:[{...a,address:'전라남도 순천시 테스트',municipality:'순천시'}],nearestCandidates:[{...a,address:'전라남도 순천시 테스트',municipality:'순천시'},b],coordinateCoverage:'partial'}}});
+ const ctx=vm.createContext({selectAirStation,weatherCity:'순천',nearestCity:()=>null,CITY_CENTERS:{},nearestAirStations,airStationText,airStationMarkup,$,navigator:{geolocation:{getCurrentPosition(ok,error,options){callbacks.push({ok,error,options})}}},Number,stamp:()=> '09:00',localData:{airQuality:{items:[{...a,address:'전라남도 순천시 테스트',municipality:'순천시'}],nearestCandidates:[{...a,address:'전라남도 순천시 테스트',municipality:'순천시'},b],coordinateCoverage:'partial'}}});
  vm.runInContext("let airPosition=null,airLocationPending=false,airLocationMessage='내 주변 대기질을 보려면 위치를 허용해 주세요';\n"+app.slice(app.indexOf('function currentAirSelection()'),app.indexOf('function nearestAirContent()'))+"\nfunction renderLocalCards(){$('#currentAir').textContent='관심지역';renderAirLocation()}",ctx);
  assert.equal(callbacks.length,0);vm.runInContext('requestAirLocation();requestAirLocation()',ctx);assert.equal(callbacks.length,1);assert.equal($('#nearestAirButton').disabled,true);
  callbacks[0].ok({coords:{latitude:34.95,longitude:127.49,accuracy:800}});assert.match($('#currentAir').textContent,/가까운 결측소.*미확인/s);assert.match($('#airLocationNote').textContent,/일부 측정소 기준/);assert.equal($('#nearestAirButton').disabled,false);
@@ -42,6 +42,19 @@ test('compact air markup escapes station and preserves grades, neutral stale sta
 const now=Date.parse('2026-11-02T06:00:00Z'),pos={latitude:34.95,longitude:127.49};
 const station=(name,delta=0,extra={})=>({station:name,address:'전라남도 순천시 시험로 '+name,municipality:'순천시',latitude:pos.latitude+delta,longitude:pos.longitude,referenceAt:new Date(now).toISOString(),pm10:20,pm25:8,...extra});
 const choose=(rows,options={})=>selectAirStation({position:pos,items:rows,candidates:rows,now,...options});
+test('Busan-wide readings remain visible from Suwon without station coordinates or a nearby station',()=>{
+ const missing={station:'가동',region:'부산',referenceAt:new Date(now).toISOString(),pm10:null,pm25:null};
+ const good={...missing,station:'광복동',pm10:21,pm25:8};
+ const outside={...good,station:'수원',region:'경기'};
+ for(const candidates of [[],[{...good,latitude:35.1,longitude:129.03}]]){
+  const result=selectAirStation({position:{latitude:37.2636,longitude:127.0286},items:[missing,good,outside],candidates,groups:[{region:'부산',items:[missing,good]}],weatherCity:'수원시 영통구',now});
+  assert.equal(result.row.station,'광복동');assert.equal(result.quality.count,2);
+  assert.equal(result.mode,'representative');assert.equal(result.scope,'부산광역시');
+  assert.match(airSelectionDetail(result),/부산광역시 선택 범위.*지역 전체 평균 아님/);
+ }
+ const empty=selectAirStation({position:pos,items:[outside],groups:[{region:'부산',items:[]}],now});
+ assert.equal(empty.row,null);
+});
 test('nearest invalid falls back by distance ONLY inside verified same province and municipality',()=>{
  const a=station('가',0,{pm10Flag:'통신장애',pm25:null}),other=station('여수',.001,{municipality:'여수시',address:'전라남도 여수시 시험로'}),b=station('나',.01),c=station('다',.02),foreign=station('동명',.002,{address:'경기도 순천시 시험로'});
  const out=choose([c,other,foreign,b,a]);assert.equal(out.row.station,'나');assert.equal(out.anchor.station,'가');assert.equal(out.fallback,true);assert.match(airSelectionDetail(out),/통신장애.*나 대체/);assert.equal(out.ranked[1].station,'여수');

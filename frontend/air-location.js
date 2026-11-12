@@ -1,3 +1,4 @@
+import {getRegion} from './regions.js';
 const grace=(row,now)=>row?.fallback&&Number.isFinite(Date.parse(row.fallbackCheckedAt))&&now-Date.parse(row.fallbackCheckedAt)>=0&&now-Date.parse(row.fallbackCheckedAt)<=3*3600000;
 // Location is passed by the page in memory only. No storage or network here.
 export function validStationCoordinates(s){return s&&Number.isFinite(s.latitude)&&Number.isFinite(s.longitude)&&s.latitude>=32&&s.latitude<=40&&s.longitude>=124&&s.longitude<=132}
@@ -33,6 +34,7 @@ export function airStationMarkup(row,now=Date.now(),fallback=false){
 export function airMunicipality(row){
  const parts=String(row?.address||'').trim().split(/\s+/),city=row?.municipality;
  const provinces={'서울특별시':'서울','부산광역시':'부산','대구광역시':'대구','인천광역시':'인천','광주광역시':'광주','대전광역시':'대전','울산광역시':'울산','세종특별자치시':'세종','경기도':'경기','강원도':'강원','강원특별자치도':'강원','충청북도':'충북','충청남도':'충남','전라북도':'전북','전북특별자치도':'전북','전라남도':'전남','전남광주통합특별시':'전남광주','경상북도':'경북','경상남도':'경남','제주특별자치도':'제주'};
+ if(parts[0]==='세종특별자치시'&&city==='세종특별자치시')return {key:'세종|'+city,label:city,city};
  return city&&parts[1]===city&&provinces[parts[0]]?{key:provinces[parts[0]]+'|'+city,label:parts[0]+' '+city,city}:null;
 }
 export function airReadingQuality(row,now=Date.now()){
@@ -48,25 +50,30 @@ export function selectAirStation({position=null,items=[],candidates=[],groups=[]
  const stable=rows=>[...rows].sort((a,b)=>String(a.station).localeCompare(String(b.station),'ko')||String(a.address).localeCompare(String(b.address),'ko'));
  // Keep the selected region scope. Weather city is preferred only if present in it.
  const group=groups.find(g=>g.region===weatherCity)||groups[0],representatives=group?(group.items||[]):items;
+ const selectedRegion=group?.region==='전국'?{label:'전국'}:getRegion(group?.region);
+ // GPS cannot erase available readings in an explicitly selected, distant region.
+ const nearby=!!position&&!!ranked[0]&&ranked[0].distanceKm<=50;
+ if(position&&!nearby&&selectedRegion)position=null;
+ const regional=!position&&selectedRegion;
  const preferred=representatives.find(r=>airMunicipality(r)?.city.replace(/[시군]$/,'')===weatherCity);
- const anchor=position?ranked[0]:stable(representatives.filter(r=>airMunicipality(r)?.key===(airMunicipality(preferred||representatives[0])?.key)))[0]||representatives[0];
+ const anchor=position?ranked[0]:stable(regional?representatives:representatives.filter(r=>airMunicipality(r)?.key===(airMunicipality(preferred||representatives[0])?.key)))[0]||representatives[0];
  if(!anchor)return {row:null,anchor:null,ranked,reason:'연결 측정소 미확인',mode:position?'distance':'representative'};
  const municipality=airMunicipality(anchor),mode=position?'distance':'representative';
  if(position&&anchor.distanceKm>50)return {row:null,anchor,ranked,municipality,mode,reason:'50km 이내 연결 측정소 없음'};
  const same=r=>municipality&&airMunicipality(r)?.key===municipality.key;
- const known=position?ranked.filter(r=>same(r)&&r.distanceKm<=50):stable(items.filter(same));
+ const known=position?ranked.filter(r=>same(r)&&r.distanceKm<=50):stable(regional?representatives:items.filter(same));
  const unknown=position?stable(items.filter(r=>same(r)&&!validStationCoordinates(r))):[];
  const pool=[...known,...unknown];
  // Prefer both pollutants from one fresh station; retain a usable partial if none is complete.
  const quality=airReadingQuality(anchor,now);
  const row=quality.count===2?anchor:pool.find(r=>airReadingQuality(r,now).count===2)||(quality.count?anchor:pool.find(r=>airReadingQuality(r,now).count>0))||anchor;
  const fallback=row.station!==anchor.station||row.address!==anchor.address;
- return {row,anchor,ranked,municipality,mode:position&&Number.isFinite(row.distanceKm)?'distance':'representative',fallback,quality:airReadingQuality(row,now),reason:quality.reason};
+ return {row,anchor,ranked,municipality,scope:regional?selectedRegion.label:null,mode:position&&Number.isFinite(row.distanceKm)?'distance':'representative',fallback,quality:airReadingQuality(row,now),reason:quality.reason};
 }
 export function airSelectionDetail(selection,stamp=String){
  const {row,anchor,municipality,mode,fallback,quality,reason}=selection;
  if(!row)return reason+' · 다른 시·군 자료로 대체하지 않습니다.';
- const basis=municipality?municipality.label+' 측정소 기준':'측정소 행정구역 미확인 · 대체하지 않음';
- const change=fallback?`${anchor.station}(${reason} · 측정 ${anchor.referenceAt?stamp(anchor.referenceAt):'시각 미확인'}) → ${row.station} 대체 · ${mode==='distance'?'같은 시·군의 다음 유효 측정소':'같은 시·군 대표 측정소 · 거리순 아님'}`:`${row.station} · ${mode==='distance'?'거리순 연결 측정소':'대표 측정소 · 거리순 아님'}`;
+ const basis=selection.scope?selection.scope+' 선택 범위의 측정소 기준 · 지역 전체 평균 아님':municipality?municipality.label+' 측정소 기준':'측정소 행정구역 미확인 · 대체하지 않음';
+ const change=fallback?`${anchor.station}(${reason} · 측정 ${anchor.referenceAt?stamp(anchor.referenceAt):'시각 미확인'}) → ${row.station} 대체 · ${mode==='distance'?'같은 시·군의 다음 유효 측정소':selection.scope?'선택 범위의 유효 측정소 · 거리순 아님':'같은 시·군 대표 측정소 · 거리순 아님'}`:`${row.station} · ${mode==='distance'?'거리순 연결 측정소':'대표 측정소 · 거리순 아님'}`;
  return `${basis}. ${change}. 측정 ${row.referenceAt?stamp(row.referenceAt):'시각 미확인'}${quality?.count<2?' · '+(quality.reason||'일부 측정 미확인'):''}. ${selection.ranked.length?'GPS의 실제 행정구역을 판정한 것은 아닙니다.':''}`;
 }

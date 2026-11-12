@@ -10,6 +10,7 @@ const gwangjuDistricts=new Set(['동구','서구','남구','북구','광산구']
 function addressParts(address){
  const [prefix,municipality,district]=address.trim().split(/\s+/),record=getRegion(prefix);
  const province=provinces[prefix]||(['province','legacy-province'].includes(record?.kind)?record.id:null);
+ if(province==='세종')return {province,municipality:'세종특별자치시',fullName:'세종특별자치시'};
  const valid=province&&/^[가-힣]+[시군구]$/.test(municipality);
  return {province,municipality:valid?municipality:null,fullName:valid?municipality+(/시$/.test(municipality)&&/^[가-힣]+구$/.test(district)?district:''):null};
 }
